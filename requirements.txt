@@ -1,0 +1,7 @@
+asgiref==3.6.0
+certifi @ file:///croot/certifi_1669749558946/work/certifi
+Django==4.1.7
+Markdown==3.4.1
+mysqlclient==2.1.1
+Pillow==9.4.0
+sqlparse==0.4.3

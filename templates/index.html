@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+{% block container %}
+<div>
+    <div class="search-engine">
+        <div id="particles-js"></div>
+        <div class="search-engine-container">
+            <h1>PlutoPe Blog</h1>
+            <form>
+                <input type="text" name="q" placeholder="Search" value="{% if q%}{{q}}{% endif %}" required="true"
+                autocomplete="off">
+                <button><i class="fa fa-search" style="font-size:24px"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="articles-container">
+        <h1>{{ heading }}</h1>
+        <div class="articles">
+            {% for article in articles %}
+            {% include 'components/articleCard.html' %}
+            {% empty %}
+            <h1>No Articles</h1>
+            {% endfor %}
+        </div>
+        <div class="page-toggler">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+                << /a>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">></a>
+                    {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
